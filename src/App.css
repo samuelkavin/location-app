@@ -1,39 +1,69 @@
-.App {
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+#root {
+  width: 100%;
+}
+
+.Container {
+  height: 100%;
+  overflow: hidden;
+  margin: 0px;
+  display: flex;
+}
+
+.Col {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.Autocomplete {
+  display: flex;
+  justify-content: center;
+  margin-top: 9rem;
+}
+
+.Rightbar {
+  background-color: #fcc63e;
+}
+
+.Logo {
+  margin-bottom: 0.75rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Logo img {
+  width: 40%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+/* Material override */
+.MuiCardContent-root:last-child {
+  padding-bottom: 15px !important;
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.MuiCard-root {
+  margin-bottom: 1rem;
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
-}
-
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
+@media only screen and (max-width: 840px) {
+  .MuiCard-root {
+    min-width: 215px !important;
   }
 }
