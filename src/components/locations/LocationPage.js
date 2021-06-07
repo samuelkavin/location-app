@@ -26,8 +26,8 @@ class LocationPage extends React.Component {
   };
 
   componentDidMount() {
-    // const { actions } = this.props;
-    this.props.actions.loadSearchLocations().catch((error) => {
+    const { actions } = this.props;
+    actions.loadSearchLocations().catch((error) => {
       toast.error(`Something went wrong! ${error}`);
     });
   }
@@ -70,7 +70,10 @@ class LocationPage extends React.Component {
             <div className="Col" style={styles.slideInRight}>
               <div className="Content Rightbar">
                 <section>
-                  <LocationList locations={this.props.locations} />
+                  <LocationList
+                    onDeleteClick={this.handleDeleteLocation}
+                    locations={this.props.locations}
+                  />
                 </section>
               </div>
             </div>
@@ -94,17 +97,12 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(locationActions, dispatch),
+    actions: {
+      loadSearchLocations: bindActionCreators(locationActions.loadSearchLocations, dispatch),
+      saveLocation: bindActionCreators(locationActions.saveLocation, dispatch),
+      deleteLocation: bindActionCreators(locationActions.deleteLocation, dispatch),
+    },
   };
 }
-
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     actions: {
-//       loadSearchLocations: bindActionCreators(locationActions.loadSearchLocations, dispatch),
-//       deleteLocation: bindActionCreators(locationActions.deleteLocation, dispatch),
-//     },
-//   };
-// }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LocationPage);

@@ -10,7 +10,9 @@ const LocationAutocomplete = ({ value, onChange, onSelect }) => {
         {({ getInputProps, suggestions }) => (
           <div>
             <MatAutocomplete
-              getInputProps={getInputProps({ placeholder: 'Search Places' })}
+              getInputProps={getInputProps({
+                placeholder: 'Select & press enter to save the search history',
+              })}
               suggestions={suggestions}
               variant="outlined"
             />

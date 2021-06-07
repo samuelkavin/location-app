@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MatCard from '../material/MatCard';
 
-const LocationList = ({ locations, onDeleteClick }) => (
+const LocationList = ({ locations }) => (
   <>
     <h2>Search History</h2>
     {locations.map((location, index) => {
